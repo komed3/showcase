@@ -1,4 +1,4 @@
-import type { SubmitEventHandler } from 'react';
+import type { MouseEvent, RefObject, SubmitEventHandler } from 'react';
 
 export type DeviceType = 'desktop' | 'tablet' | 'mobile' | 'custom';
 
@@ -31,6 +31,30 @@ export interface HeaderProps {
 export interface InfoPanelProps {
     isOpen: boolean;
     onClose: () => void;
+}
+
+interface CanvasProps {
+    url: string;
+    devices: DeviceInstance[];
+    zoom: number;
+    isDragging: boolean;
+    loadError: string | null;
+    scrollContainerRef: RefObject< HTMLDivElement | null >;
+    onMouseDown: ( e: MouseEvent ) => void;
+    onMouseMove: ( e: MouseEvent ) => void;
+    onMouseUp: () => void;
+    onRemoveDevice: ( id: string ) => void;
+    onToggleOrientation: ( id: string ) => void;
+}
+
+export interface DeviceFrameProps {
+    key?: string;
+    device: DeviceInstance;
+    url: string;
+    zoom: number;
+    isDragging: boolean;
+    onRemove: ( id: string ) => void;
+    onToggleOrientation: ( id: string ) => void;
 }
 
 export interface AddDeviceModalProps {
