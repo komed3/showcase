@@ -34,5 +34,15 @@ export const Footer = ( { zoom, setZoom }: FooterProps ) => {
                 >{ val * 100 }%</button> ) ) }
             </div>
         </div>
+
+        <div className="flex items-center gap-4">
+            <div className="text-[9px] font-bold text-brand-400 uppercase tracking-[0.25em]">
+                Middle-Click Drag • Ctrl+Scroll Zoom
+            </div>
+            <div className="h-4 w-px bg-brand-200" />
+            <div className="text-[9px] font-bold text-brand-900 uppercase tracking-[0.1em]">
+                Copyright 2026 komed3
+            </div>
+        </div>
     </footer> );
 };
