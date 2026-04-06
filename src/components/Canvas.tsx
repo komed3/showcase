@@ -1,4 +1,4 @@
-import { Globe, Search, AlertCircle } from 'lucide-react';
+import { AlertCircle, LayoutTemplate, Search } from 'lucide-react';
 import React from 'react';
 import { AnimatePresence } from 'motion/react';
 
@@ -9,6 +9,7 @@ export const Canvas = ( {
     url, devices, zoom, isDragging, loadError, scrollContainerRef, onMouseDown,
     onMouseMove, onMouseUp, onRemoveDevice, onToggleOrientation
 } : CanvasProps ) => {
+    // Error State
     if ( loadError ) return ( <div className="flex-1 flex flex-col items-center justify-center bg-brand-50 p-12 text-center">
         <div className="w-20 h-20 bg-red-50 rounded-3xl shadow-xl flex items-center justify-center text-red-500 mb-8 border border-red-100">
             <AlertCircle size={40} />
@@ -23,5 +24,20 @@ export const Canvas = ( {
         >
             Try Again
         </button>
+    </div> );
+
+    // Empty State
+    if ( ! url ) return ( <div className="flex-1 flex flex-col items-center justify-center bg-brand-50 p-12 text-center">
+        <div className="w-20 h-20 bg-white rounded-3xl shadow-xl flex items-center justify-center text-brand-200 mb-8 border border-brand-100">
+            <LayoutTemplate size={40} />
+        </div>
+        <h2 className="font-display font-bold text-3xl text-brand-900 mb-4 tracking-tight">Ready to showcase?</h2>
+        <p className="text-brand-500 max-w-md leading-relaxed font-medium">
+            Enter a website URL in the search bar above to start previewing your design across multiple devices simultaneously.
+        </p>
+        <div className="mt-12 flex items-center gap-3 text-xs font-bold text-brand-400 uppercase tracking-widest">
+            <Search size={14} />
+            Waiting for input …
+        </div>
     </div> );
 }
