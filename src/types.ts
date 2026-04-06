@@ -26,6 +26,12 @@ export interface InfoPanelProps {
     onClose: () => void;
 }
 
+export interface AddDeviceModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+    onAdd: ( device: { name: string; width: number; height: number; type: DeviceType } ) => void;
+}
+
 export interface FooterProps {
     zoom: number;
     setZoom: ( zoom: number ) => void;
