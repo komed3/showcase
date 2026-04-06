@@ -1,3 +1,5 @@
+import type { SubmitEventHandler } from 'react';
+
 export type DeviceType = 'desktop' | 'tablet' | 'mobile' | 'custom';
 
 export interface DeviceInstance {
@@ -7,4 +9,14 @@ export interface DeviceInstance {
     width: number;
     height: number;
     orientation: 'portrait' | 'landscape';
+}
+
+export interface HeaderProps {
+    inputUrl: string;
+    setInputUrl: ( url: string ) => void;
+    onUrlSubmit: SubmitEventHandler< HTMLFormElement >;
+    onAddDevice: () => void;
+    onReset: () => void;
+    onToggleInfo: () => void;
+    currentUrl: string;
 }
