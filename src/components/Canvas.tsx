@@ -1,8 +1,7 @@
 import { AlertCircle, LayoutTemplate, Search } from 'lucide-react';
-import React from 'react';
 import { AnimatePresence } from 'motion/react';
 
-import type { CanvasProps, DeviceInstance } from '@/src/types';
+import type { CanvasProps } from '@/src/types';
 import { DeviceFrame } from '@/src/components/DeviceFrame';
 
 export const Canvas = ( {
@@ -40,4 +39,20 @@ export const Canvas = ( {
             Waiting for input …
         </div>
     </div> );
+
+    // Main Canvas
+    return ( <main
+        ref={ scrollContainerRef } onMouseDown={ onMouseDown } onMouseMove={ onMouseMove }
+        onMouseUp={ onMouseUp } onMouseLeave={ onMouseUp }
+        className="flex-1 overflow-auto p-16 no-scrollbar bg-brand-50 cursor-grab active:cursor-grabbing"
+    >
+        <div className="flex flex-row justify-center items-center min-h-full gap-16 min-w-fit mx-auto">
+            <AnimatePresence mode="popLayout">
+                { devices.map( ( device ) => ( <DeviceFrame
+                    key={ device.id } device={ device } url={ url } zoom={ zoom } isDragging={ isDragging }
+                    onRemove={ onRemoveDevice } onToggleOrientation={ onToggleOrientation }
+                /> ) ) }
+            </AnimatePresence>
+        </div>
+    </main> );
 }
