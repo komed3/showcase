@@ -33,7 +33,7 @@ export interface InfoPanelProps {
     onClose: () => void;
 }
 
-interface CanvasProps {
+export interface CanvasProps {
     url: string;
     devices: DeviceInstance[];
     zoom: number;
