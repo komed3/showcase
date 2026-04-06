@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { INITIAL_DEVICES } from '@/src/constants';
-import type { DeviceInstance } from '@/src/types';
+import type { DeviceInstance, DeviceType } from '@/src/types';
 
 export function useShowcase () {
     const [ url, setUrl ] = useState( '' );
@@ -60,5 +60,15 @@ export function useShowcase () {
         // Basic reachability check (will often fail due to CORS, but good for malformed URLs)
         try { new URL( formattedUrl ) }
         catch ( err ) { setLoadError( 'Invalid URL format. Please check the address.' ) }
+    };
+
+    // Device Management Handlers
+    const handleAddDevice = ( deviceData: { name: string; width: number; height: number; type: DeviceType } ) => {
+        const id = Math.random().toString( 36 ).substring( 2, 9 );
+        setDevices( [ ...devices, { ...deviceData, id, orientation: deviceData.width > deviceData.height ? 'landscape' : 'portrait' } ] );
+    };
+
+    const removeDevice = ( id: string ) => {
+        setDevices( devices.filter( d => d.id !== id ) );
     };
 }
