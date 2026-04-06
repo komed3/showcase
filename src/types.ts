@@ -25,3 +25,8 @@ export interface InfoPanelProps {
     isOpen: boolean;
     onClose: () => void;
 }
+
+export interface FooterProps {
+    zoom: number;
+    setZoom: ( zoom: number ) => void;
+}
