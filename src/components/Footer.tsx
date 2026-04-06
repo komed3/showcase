@@ -20,6 +20,19 @@ export const Footer = ( { zoom, setZoom }: FooterProps ) => {
                     { Math.round( zoom * 100 ) }%
                 </span>
             </div>
+
+            <div className="h-4 w-px bg-brand-200" />
+
+            <div className="flex items-center gap-1.5">
+                { [ 0.3, 0.5, 0.8, 1.0 ].map( ( val ) => ( <button
+                    key={ val } onClick={ () => setZoom( val ) }
+                    className={ `px-2.5 py-1 text-[10px] font-bold rounded-md transition-all cursor-pointer ${
+                        zoom === val
+                            ? 'bg-brand-900 text-white shadow-md'
+                            : 'bg-white border border-brand-200 text-brand-500 hover:border-brand-900 hover:text-brand-900'
+                    }` }
+                >{ val * 100 }%</button> ) ) }
+            </div>
         </div>
     </footer> );
 };
