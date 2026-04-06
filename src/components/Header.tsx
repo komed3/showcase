@@ -1,12 +1,12 @@
-import { ExternalLink, Globe, Info, Plus, RotateCcw, Search } from 'lucide-react';
+import { ExternalLink, Info, LayoutTemplate, Plus, RotateCcw, Search } from 'lucide-react';
 import type { HeaderProps } from '@/src/types';
 
 export const Header = ( { inputUrl, setInputUrl, onUrlSubmit, onAddDevice, onReset, onToggleInfo, currentUrl }: HeaderProps ) => {
     return ( <header className="shrink-0 z-50 bg-white/90 backdrop-blur-xl border-b border-brand-200 px-6 py-3 shadow-sm">
-        <div className="max-w-[1600px] mx-auto flex items-center gap-6 h-12">
-            <div className="flex items-center gap-3 shrink-0">
-                <div className="w-9 h-9 bg-brand-900 rounded-lg flex items-center justify-center text-white shadow-md">
-                    <Globe size={20} />
+        <div className="max-w-[1600px] mx-auto flex items-center gap-10 h-12">
+            <div className="h-full flex items-center gap-3 shrink-0">
+                <div className="h-full aspect-square bg-brand-900 rounded-lg flex items-center justify-center text-white shadow-md">
+                    <LayoutTemplate size={24} />
                 </div>
                 <h1 className="font-display font-bold text-xl tracking-tight text-brand-900 leading-none">Showcase</h1>
             </div>
@@ -47,14 +47,14 @@ export const Header = ( { inputUrl, setInputUrl, onUrlSubmit, onAddDevice, onRes
                 </button>
 
                 <button
-                    className="h-full px-3 flex items-center justify-center bg-white border border-brand-200 text-brand-500 hover:text-brand-900 rounded-xl transition-all cursor-pointer"
+                    className="h-full aspect-square flex items-center justify-center bg-white border border-brand-200 text-brand-500 hover:text-brand-900 rounded-xl transition-all cursor-pointer"
                     onClick={ onReset } title="Reset Workspace"
                 >
                     <RotateCcw size={18} />
                 </button>
 
                 <button
-                    className="h-full px-3 flex items-center justify-center bg-white border border-brand-200 text-brand-500 hover:text-brand-900 rounded-xl transition-all cursor-pointer"
+                    className="h-full aspect-square flex items-center justify-center bg-white border border-brand-200 text-brand-500 hover:text-brand-900 rounded-xl transition-all cursor-pointer"
                     onClick={ onToggleInfo } title="Help & Info"
                 >
                     <Info size={18} />
