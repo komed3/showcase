@@ -41,4 +41,24 @@ export function useShowcase () {
             window.removeEventListener( 'touchmove', handleTouch );
         };
     }, [] );
+
+    // URL Submission Handler
+    const handleUrlSubmit = async ( e: SubmitEvent ) => {
+        e.preventDefault();
+
+        let formattedUrl = inputUrl.trim();
+        if ( ! formattedUrl ) return;
+
+        if ( ! formattedUrl.startsWith( 'http://' ) && ! formattedUrl.startsWith( 'https://' ) ) {
+            formattedUrl = `https://${formattedUrl}`;
+        }
+
+        setLoadError( null );
+        setUrl( formattedUrl );
+        setInputUrl( formattedUrl );
+
+        // Basic reachability check (will often fail due to CORS, but good for malformed URLs)
+        try { new URL( formattedUrl ) }
+        catch ( err ) { setLoadError( 'Invalid URL format. Please check the address.' ) }
+    };
 }
