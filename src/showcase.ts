@@ -1,4 +1,5 @@
-import { type SubmitEvent, type SubmitEventHandler, useEffect, useRef, useState } from 'react';
+import type { MouseEvent, SubmitEvent, SubmitEventHandler } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { INITIAL_DEVICES } from '@/src/constants';
 import type { DeviceInstance, DeviceType } from '@/src/types';

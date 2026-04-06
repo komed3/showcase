@@ -1,6 +1,7 @@
 import { useShowcase } from '@/src/showcase';
 
 import { AddDeviceModal } from '@/src/components/AddDeviceModal';
+import { Canvas } from '@/src/components/Canvas';
 import { Footer } from '@/src/components/Footer';
 import { Header } from '@/src/components/Header';
 import { InfoPanel } from '@/src/components/InfoPanel';
@@ -20,6 +21,12 @@ export default function App () {
             onToggleInfo={ () => setShowInfo( ! showInfo ) } currentUrl={ url }
         />
         <InfoPanel isOpen={ showInfo } onClose={ () => setShowInfo( false ) } />
+        <Canvas
+            url={ url } devices={ devices } zoom={ zoom } isDragging={ isDragging }
+            loadError={ loadError } scrollContainerRef={ scrollContainerRef }
+            onMouseDown={ handleMouseDown } onMouseMove={ handleMouseMove } onMouseUp={ handleMouseUp }
+            onRemoveDevice={ removeDevice } onToggleOrientation={ toggleDeviceOrientation }
+        />
         <Footer zoom={ zoom } setZoom={ setZoom } />
         <AddDeviceModal isOpen={ showAddModal } onClose={ () => setShowAddModal( false ) } onAdd={ handleAddDevice } />
     </div> );
