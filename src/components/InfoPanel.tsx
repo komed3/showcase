@@ -1,7 +1,7 @@
 import { Info, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 
-import { InfoPanelProps } from '@/src/types';
+import type { InfoPanelProps } from '@/src/types';
 
 export const InfoPanel = ( { isOpen, onClose }: InfoPanelProps ) => {
     return ( <AnimatePresence>
