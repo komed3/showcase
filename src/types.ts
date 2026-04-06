@@ -20,3 +20,8 @@ export interface HeaderProps {
     onToggleInfo: () => void;
     currentUrl: string;
 }
+
+export interface InfoPanelProps {
+    isOpen: boolean;
+    onClose: () => void;
+}

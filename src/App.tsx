@@ -1,5 +1,6 @@
 import { useShowcase } from '@/src/showcase';
 
+import { InfoPanel } from '@/src/components/InfoPanel';
 import { Header } from '@/src/components/Header';
 
 export default function App () {
@@ -16,5 +17,7 @@ export default function App () {
             onAddDevice={ () => setShowAddModal( true ) } onReset={ resetWorkspace }
             onToggleInfo={ () => setShowInfo( ! showInfo ) } currentUrl={ url }
         />
+
+        <InfoPanel isOpen={ showInfo } onClose={ () => setShowInfo( false ) } />
     </div> );
 }
