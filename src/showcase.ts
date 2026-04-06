@@ -82,4 +82,13 @@ export function useShowcase () {
             return device;
         } ) );
     };
+
+    // Reset Workspace
+    const resetWorkspace = () => {
+        setUrl( '' );
+        setInputUrl( '' );
+        setDevices( INITIAL_DEVICES );
+        setZoom( 0.5 );
+        setLoadError( null );
+    };
 }
