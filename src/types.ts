@@ -11,6 +11,13 @@ export interface DeviceInstance {
     orientation: 'portrait' | 'landscape';
 }
 
+export interface NewDevice {
+    name: string;
+    width: number;
+    height: number;
+    type: DeviceType;
+}
+
 export interface HeaderProps {
     inputUrl: string;
     setInputUrl: ( url: string ) => void;
@@ -29,7 +36,7 @@ export interface InfoPanelProps {
 export interface AddDeviceModalProps {
     isOpen: boolean;
     onClose: () => void;
-    onAdd: ( device: { name: string; width: number; height: number; type: DeviceType } ) => void;
+    onAdd: ( device: NewDevice ) => void;
 }
 
 export interface FooterProps {
