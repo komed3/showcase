@@ -91,4 +91,33 @@ export function useShowcase () {
         setZoom( 0.5 );
         setLoadError( null );
     };
+
+    // Mouse Drag Handlers
+    const handleMouseDown = ( e: MouseEvent ) => {
+        if ( e.button === 1 ) { // Middle mouse button
+            e.preventDefault();
+
+            setIsDragging( true );
+            startX.current = e.pageX - ( scrollContainerRef.current?.offsetLeft || 0 );
+            startY.current = e.pageY - ( scrollContainerRef.current?.offsetTop || 0 );
+            scrollLeft.current = scrollContainerRef.current?.scrollLeft || 0;
+            scrollTop.current = scrollContainerRef.current?.scrollTop || 0;
+        }
+    };
+
+    const handleMouseMove = ( e: MouseEvent ) => {
+        if ( ! isDragging || ! scrollContainerRef.current ) return;
+
+        const x = e.pageX - ( scrollContainerRef.current.offsetLeft || 0 );
+        const y = e.pageY - ( scrollContainerRef.current.offsetTop || 0 );
+        const walkX = ( x - startX.current ) * 2;
+        const walkY = ( y - startY.current ) * 2;
+
+        scrollContainerRef.current.scrollLeft = scrollLeft.current - walkX;
+        scrollContainerRef.current.scrollTop = scrollTop.current - walkY;
+    };
+
+    const handleMouseUp = () => {
+        setIsDragging( false );
+    };
 }
