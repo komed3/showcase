@@ -71,4 +71,15 @@ export function useShowcase () {
     const removeDevice = ( id: string ) => {
         setDevices( devices.filter( d => d.id !== id ) );
     };
+
+    const toggleDeviceOrientation = ( id: string ) => {
+        setDevices( devices.map( device => {
+            if ( device.id === id ) return {
+                ...device, width: device.height, height: device.width,
+                orientation: device.orientation === 'portrait' ? 'landscape' : 'portrait'
+            };
+
+            return device;
+        } ) );
+    };
 }
