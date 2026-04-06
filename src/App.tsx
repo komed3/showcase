@@ -1,7 +1,8 @@
 import { useShowcase } from '@/src/showcase';
 
-import { InfoPanel } from '@/src/components/InfoPanel';
+import { Footer } from '@/src/components/Footer';
 import { Header } from '@/src/components/Header';
+import { InfoPanel } from '@/src/components/InfoPanel';
 
 export default function App () {
     const {
@@ -17,7 +18,7 @@ export default function App () {
             onAddDevice={ () => setShowAddModal( true ) } onReset={ resetWorkspace }
             onToggleInfo={ () => setShowInfo( ! showInfo ) } currentUrl={ url }
         />
-
         <InfoPanel isOpen={ showInfo } onClose={ () => setShowInfo( false ) } />
+        <Footer zoom={ zoom } setZoom={ setZoom } />
     </div> );
 }
