@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { type SubmitEvent, type SubmitEventHandler, useEffect, useRef, useState } from 'react';
 
 import { INITIAL_DEVICES } from '@/src/constants';
 import type { DeviceInstance, DeviceType } from '@/src/types';
@@ -43,8 +43,8 @@ export function useShowcase () {
     }, [] );
 
     // URL Submission Handler
-    const handleUrlSubmit = async ( e: SubmitEvent ) => {
-        e.preventDefault();
+    const handleUrlSubmit: SubmitEventHandler< HTMLFormElement > = async ( event: SubmitEvent< HTMLFormElement > ) => {
+        event.preventDefault();
 
         let formattedUrl = inputUrl.trim();
         if ( ! formattedUrl ) return;
