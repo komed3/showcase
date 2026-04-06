@@ -1,5 +1,6 @@
 import { useShowcase } from '@/src/showcase';
 
+import { AddDeviceModal } from '@/src/components/AddDeviceModal';
 import { Footer } from '@/src/components/Footer';
 import { Header } from '@/src/components/Header';
 import { InfoPanel } from '@/src/components/InfoPanel';
@@ -20,5 +21,6 @@ export default function App () {
         />
         <InfoPanel isOpen={ showInfo } onClose={ () => setShowInfo( false ) } />
         <Footer zoom={ zoom } setZoom={ setZoom } />
+        <AddDeviceModal isOpen={ showAddModal } onClose={ () => setShowAddModal( false ) } onAdd={ handleAddDevice } />
     </div> );
 }
