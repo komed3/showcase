@@ -14,7 +14,7 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "lucide-react": "^1.47.0",
+    "lucide-react": "^1.48.0",
     "motion": "^13.4.4",
     "react": "^19.2.8",
     "react-dom": "^19.3.0"
